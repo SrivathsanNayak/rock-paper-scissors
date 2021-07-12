@@ -24,6 +24,8 @@ function game() {
     const roundPara = document.querySelector("#round");
     const finalPara = document.querySelector("#final-result");
 
+    infoPara.textContent = "Choose your weapon.";
+
     /*
     computerPlay() returns computer's randomly generated choice
     choices is array of choices available
@@ -65,27 +67,15 @@ function game() {
     }
 
     function gameScore() {
-        return (`You: ${playerScore}\nComputer: ${computerScore}`);
+        while (playerScore < 5 && computerScore < 5) {
+            return (`You: ${playerScore}\nComputer: ${computerScore}`);
+        }
+        if (playerScore === 5) {
+            return ("You won! You have defeated the computer");
+        } else {
+            return ("You lost! The computer has defeated you");
+        }
     }
 }
 
-/*
-game() will have a while loop for calling playRound() until either player or computer has 5 points
-When the player or the computer reaches 5 points, alert is shown with the result of the game
-*/
-/*function game() {
-    while (playerScore < 5 && computerScore < 5) {
-        let playerSelection = prompt("Enter rock, paper or scissors: ");
-        const computerSelection = computerPlay();
-        console.log(playRound(playerSelection, computerSelection));
-        console.log(`You: ${playerScore}`);
-        console.log(`Computer: ${computerScore}`);
-    }
-    if (playerScore === 5) {
-        alert("You won! You have defeated the computer");
-    } else {
-        alert("You lost! The computer has defeated you");
-    }
-}
-*/
 game();
