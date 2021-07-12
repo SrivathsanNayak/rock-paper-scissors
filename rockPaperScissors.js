@@ -1,6 +1,21 @@
 let playerScore = 0;
 let computerScore = 0;
 
+const rockButton = document.querySelector("#rock-btn");
+rockButton.addEventListener('click', () => {
+    console.log(playRound('Rock'));
+});
+
+const paperButton = document.querySelector("#paper-btn");
+paperButton.addEventListener('click', () => {
+    console.log(playRound('Paper'));
+});
+
+const scissorsButton = document.querySelector("#scissors-btn");
+scissorsButton.addEventListener('click', () => {
+    console.log(playRound('Scissors'));
+});
+
 /*
 computerPlay() returns computer's randomly generated choice
 choices is array of choices available
@@ -21,9 +36,10 @@ if-else logic is used to compare and determine
 The playerSelection and computerSelection strings are compared by converting both of them to lowercase
 For a win, the player is awarded 1 point; for a loss, the computer is awarded 1 point; for a draw, no points
 */
-function playRound(playerSelection, computerSelection) {
+function playRound(playerSelection) {
     //To refine the input, make the first letter uppercase and the rest lowercase; makes it easier to compare with computerSelection
     playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1, playerSelection.length).toLowerCase();
+    const computerSelection = computerPlay();
 
     if (playerSelection === computerSelection) {
         return `It's a draw. ${playerSelection} cancels out ${computerSelection}`;
@@ -45,6 +61,7 @@ game() will have a while loop for calling playRound() until either player or com
 When the player or the computer reaches 5 points, alert is shown with the result of the game
 */
 function game() {
+    /*
     while (playerScore < 5 && computerScore < 5) {
         let playerSelection = prompt("Enter rock, paper or scissors: ");
         const computerSelection = computerPlay();
@@ -57,6 +74,7 @@ function game() {
     } else {
         alert("You lost! The computer has defeated you");
     }
+    */
 }
 
-game();
+//game();
