@@ -18,22 +18,28 @@ infoPara.textContent = "Choose your weapon.";
 
 rockButton.addEventListener('click', () => {
     if (!gameOver) {
-        console.log(playRound('Rock'));
-        console.log(gameScore());
+        let roundResult = playRound('Rock');
+        let gameResult = gameScore();
+        roundPara.appendChild(document.createTextNode(roundResult));
+        roundPara.appendChild(document.createTextNode(gameResult));
     }
 });
 
 paperButton.addEventListener('click', () => {
     if (!gameOver) {
-        console.log(playRound('Paper'));
-        console.log(gameScore());
+        let roundResult = playRound('Paper');
+        let gameResult = gameScore();
+        roundPara.appendChild(document.createTextNode(roundResult));
+        roundPara.appendChild(document.createTextNode(gameResult));
     }
 });
 
 scissorsButton.addEventListener('click', () => {
     if (!gameOver) {
-        console.log(playRound('Scissors'));
-        console.log(gameScore());
+        let roundResult = playRound('Scissors');
+        let gameResult = gameScore();
+        roundPara.appendChild(document.createTextNode(roundResult));
+        roundPara.appendChild(document.createTextNode(gameResult));
     }
 });
 
@@ -64,7 +70,7 @@ function playRound(playerSelection) {
 
 function gameScore() {
     while (playerScore < 5 && computerScore < 5) {
-        return (`You: ${playerScore}\nComputer: ${computerScore}`);
+        return (`\nYou: ${playerScore}\nComputer: ${computerScore}`);
     }
     if (playerScore === 5) {
         gameOver = true;
