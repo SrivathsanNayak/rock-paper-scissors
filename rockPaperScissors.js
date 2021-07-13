@@ -7,7 +7,6 @@ const paperButton = document.querySelector("#paper-btn");
 const scissorsButton = document.querySelector("#scissors-btn");
 const infoPara = document.querySelector("#info");
 const roundPara = document.querySelector("#round");
-const finalPara = document.querySelector("#final-result");
 
 function computerPlay() {
     let choices = ['Rock', 'Paper', 'Scissors'];
