@@ -7,6 +7,9 @@ const paperButton = document.querySelector("#paper-btn");
 const scissorsButton = document.querySelector("#scissors-btn");
 const infoPara = document.querySelector("#info");
 const roundPara = document.querySelector("#round");
+const restartButton = document.querySelector("#restart-btn");
+
+restartButton.style.display = "none";
 
 function computerPlay() {
     let choices = ['Rock', 'Paper', 'Scissors'];
@@ -21,7 +24,9 @@ rockButton.addEventListener('click', () => {
         let roundResult = playRound('Rock');
         let gameResult = gameScore();
         roundPara.appendChild(document.createTextNode(roundResult));
+        roundPara.appendChild(document.createElement("br"));
         roundPara.appendChild(document.createTextNode(gameResult));
+        roundPara.appendChild(document.createElement("br"));
     }
 });
 
@@ -30,7 +35,9 @@ paperButton.addEventListener('click', () => {
         let roundResult = playRound('Paper');
         let gameResult = gameScore();
         roundPara.appendChild(document.createTextNode(roundResult));
+        roundPara.appendChild(document.createElement("br"));
         roundPara.appendChild(document.createTextNode(gameResult));
+        roundPara.appendChild(document.createElement("br"));
     }
 });
 
@@ -39,7 +46,9 @@ scissorsButton.addEventListener('click', () => {
         let roundResult = playRound('Scissors');
         let gameResult = gameScore();
         roundPara.appendChild(document.createTextNode(roundResult));
+        roundPara.appendChild(document.createElement("br"));
         roundPara.appendChild(document.createTextNode(gameResult));
+        roundPara.appendChild(document.createElement("br"));
     }
 });
 
@@ -74,9 +83,11 @@ function gameScore() {
     }
     if (playerScore === 5) {
         gameOver = true;
+        restartButton.style.display = "block";
         return ("You won! You have defeated the computer");
     } else if (computerScore === 5) {
         gameOver = true;
+        restartButton.style.display = "block";
         return ("You lost! The computer has defeated you");
     } else {
         return;
