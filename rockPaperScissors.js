@@ -8,7 +8,6 @@ const scissorsButton = document.querySelector("#scissors-btn");
 const infoPara = document.querySelector("#info");
 const roundPara = document.querySelector("#round");
 const restartButton = document.querySelector("#restart-btn");
-
 restartButton.style.display = "none";
 
 function computerPlay() {
@@ -52,13 +51,19 @@ scissorsButton.addEventListener('click', () => {
     }
 });
 
-/*
-playRound() takes two parameters: playerSelection and computerSelection
-It returns the string which describes the result of the round
-if-else logic is used to compare and determine
-The playerSelection and computerSelection strings are compared by converting both of them to lowercase
-For a win, the player is awarded 1 point; for a loss, the computer is awarded 1 point; for a draw, no points
-*/
+restartButton.addEventListener('click', () => {
+    if (gameOver) {
+        playerScore = 0;
+        computerScore = 0;
+        gameOver = false;
+        restartButton.style.display = "none";
+        const clearPara = document.querySelectorAll("#round");
+        for (let i = 0; i < clearPara.length; i++) {
+            clearPara[i].textContent = "";
+        }
+    }
+});
+
 function playRound(playerSelection) {
     const computerSelection = computerPlay();
 
