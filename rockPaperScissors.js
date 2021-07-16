@@ -91,11 +91,11 @@ function gameScore() {
     if (playerScore === 5) {
         gameOver = true;
         restartButton.style.display = "block";
-        return ("You won! You have defeated the computer");
+        return ("YOU WON! YOU HAVE DEFEATED THE COMPUTER.");
     } else if (computerScore === 5) {
         gameOver = true;
         restartButton.style.display = "block";
-        return ("You lost! The computer has defeated you");
+        return ("YOU LOST! THE COMPUTER HAS DEFEATED YOU.");
     } else {
         return;
     }
