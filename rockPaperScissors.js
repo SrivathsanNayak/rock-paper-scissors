@@ -5,6 +5,8 @@ let gameOver = false;
 const rockButton = document.querySelector("#rock-btn");
 const paperButton = document.querySelector("#paper-btn");
 const scissorsButton = document.querySelector("#scissors-btn");
+const playerScorePara = document.querySelector("#player-score");
+const computerScorePara = document.querySelector("#computer-score");
 const infoPara = document.querySelector("#info");
 const roundPara = document.querySelector("#round");
 const restartButton = document.querySelector("#restart-btn");
@@ -25,7 +27,6 @@ rockButton.addEventListener('click', () => {
         roundPara.appendChild(document.createTextNode(roundResult));
         roundPara.appendChild(document.createElement("br"));
         roundPara.appendChild(document.createTextNode(gameResult));
-        roundPara.appendChild(document.createElement("br"));
     }
 });
 
@@ -36,7 +37,6 @@ paperButton.addEventListener('click', () => {
         roundPara.appendChild(document.createTextNode(roundResult));
         roundPara.appendChild(document.createElement("br"));
         roundPara.appendChild(document.createTextNode(gameResult));
-        roundPara.appendChild(document.createElement("br"));
     }
 });
 
@@ -47,7 +47,6 @@ scissorsButton.addEventListener('click', () => {
         roundPara.appendChild(document.createTextNode(roundResult));
         roundPara.appendChild(document.createElement("br"));
         roundPara.appendChild(document.createTextNode(gameResult));
-        roundPara.appendChild(document.createElement("br"));
     }
 });
 
@@ -55,6 +54,7 @@ restartButton.addEventListener('click', () => {
     if (gameOver) {
         playerScore = 0;
         computerScore = 0;
+        gameScore();
         gameOver = false;
         restartButton.style.display = "none";
         const clearPara = document.querySelectorAll("#round");
@@ -83,8 +83,10 @@ function playRound(playerSelection) {
 }
 
 function gameScore() {
+    playerScorePara.textContent = `${playerScore}`;
+    computerScorePara.textContent = `${computerScore}`;
     while (playerScore < 5 && computerScore < 5) {
-        return (`\nYou: ${playerScore}\nComputer: ${computerScore}`);
+        return ("");
     }
     if (playerScore === 5) {
         gameOver = true;
