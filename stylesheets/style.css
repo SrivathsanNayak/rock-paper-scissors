@@ -43,11 +43,16 @@ h1 {
     border: none;
 }
 
+#buttons button:hover {
+    filter: contrast(150%) brightness(0.8);
+    box-shadow: 0px 0px 15px #787a91;
+}
+
 .btn-text {
     font-weight: 600;
     text-transform: uppercase;
     position: relative;
-    top: 40%;
+    top: 38%;
 }
 
 #score {
@@ -60,10 +65,13 @@ h1 {
 #score p {
     padding: 1rem;
     font-size: 1.25rem;
-    font-weight: bolder;
+    font-weight: 900;
     color: #c20114;
     border: 5px solid black;
     border-radius: 10px;
+}
+
+#score p:hover {
     box-shadow: 5px 5px 5px #787a91;
 }
 
@@ -98,9 +106,28 @@ h1 {
     padding: 0.8rem;
 }
 
+#restart-btn:hover {
+    box-shadow: 0 0 8px #787a91;
+}
+
 @media screen and (max-width: 992px) {
     html {
         font-size: 0.8rem;
+    }
+
+    #rock-btn {
+        width: 100px;
+        height: 100px;
+    }
+
+    #paper-btn {
+        width: 100px;
+        height: 100px;
+    }
+
+    #scissors-btn {
+        width: 100px;
+        height: 100px;
     }
 }
 
